@@ -5,7 +5,7 @@ import (
 	"io/ioutil"
 
 	"github.com/shindakun/envy"
-	"github.com/shindakun/mailgunner"
+	"github.com/shindakun/mailgunner/v2"
 )
 
 const apiurl = "https://api.mailgun.net/v3/YOURMGACCOUNT"
@@ -16,7 +16,7 @@ func main() {
 		panic(err)
 	}
 
-	mgc := mailgunner.New(apiurl, mgKey)
+	mgc := mailgunner.New(apiurl, mgKey, nil)
 
 	// Update these with your testing info etc.
 	req, err := mgc.FormatEmailRequest("from", "to", "subject", "text")

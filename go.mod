@@ -1,1 +1,1 @@
-module github.com/shindakun/mailgunner
+module github.com/shindakun/mailgunner/v2

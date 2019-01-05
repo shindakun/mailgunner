@@ -14,11 +14,14 @@ type MgClient struct {
 }
 
 // New returns our MgClient with the proper settings
-func New(apiurl, apikey string) MgClient {
-	return MgClient{
+func New(apiurl, apikey string, client *http.Client) *MgClient {
+	if client == nil {
+		client = http.DefaultClient
+	}
+	return &MgClient{
 		apiurl,
 		apikey,
-		http.DefaultClient,
+		client,
 	}
 }
 
